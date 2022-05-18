@@ -1,0 +1,29 @@
+.about-background {
+  // background-color: #cddbe0;
+  .about-layout {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .about {
+      width: 50%;
+      > div.general-info {
+        display: flex;
+        justify-content: space-around;
+        > * {
+          flex-grow: 1;
+          flex-basis: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-layout {
+    flex-direction: column;
+    .about {
+      width: 90% !important;
+    }
+  }
+}

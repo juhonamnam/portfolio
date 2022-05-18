@@ -1,0 +1,86 @@
+$hamburger-button-width: 60px;
+$hamburger-button-height: 60px;
+$hamburger-button-padding: 1rem;
+$hamburger-bar-space-between: 10px;
+$transition-time: 0.4s;
+
+@mixin hamburger-bar($position) {
+  width: 100%;
+  height: 5px;
+  border-radius: 2px;
+  background-color: rgb(139, 137, 137);
+  top: $position;
+}
+
+@mixin hamburger-button() {
+  @include hamburger-bar(0px);
+  position: relative;
+  transition: $transition-time;
+  &::before {
+    @include hamburger-bar(-$hamburger-bar-space-between);
+    content: '';
+    position: absolute;
+  }
+  &::after {
+    @include hamburger-bar($hamburger-bar-space-between);
+    content: '';
+    position: absolute;
+  }
+}
+
+@mixin hamburger-button-size() {
+  width: $hamburger-button-width;
+  height: $hamburger-button-height;
+}
+
+div.custom-hamburger-container {
+  @include hamburger-button-size();
+  input.custom-hamburger-checkbox {
+    @include hamburger-button-size();
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+    cursor: pointer;
+
+    + div.custom-hamburger {
+      @include hamburger-button-size();
+      z-index: 2;
+      position: absolute;
+      padding: $hamburger-button-padding;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.5;
+      > div {
+        @include hamburger-button();
+      }
+
+      + div.custom-hamburger-content {
+        position: fixed;
+        width: 0%;
+        height: 0%;
+        overflow: hidden;
+        visibility: hidden;
+        transition: $transition-time;
+      }
+    }
+
+    &:checked + div.custom-hamburger {
+      > div {
+        transform: rotate(135deg);
+        &::before,
+        &::after {
+          top: 0;
+          transform: rotate(90deg);
+        }
+      }
+
+      + div.custom-hamburger-content {
+        width: 100%;
+        height: 100%;
+        visibility: visible;
+        transition: $transition-time;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+div.custom-sidebar-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 1;
+  + div.custom-sidebar {
+    position: absolute;
+    width: 400px;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 1;
+    div.custom-sidebar-title {
+      height: $hamburger-button-height;
+      padding-left: $hamburger-button-width;
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+    }
+    div.custom-sidebar-content {
+      height: $hamburger-button-height;
+      padding-left: $hamburger-button-padding;
+      font-size: 1.5rem;
+    }
+  }
+}

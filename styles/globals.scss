@@ -1,0 +1,40 @@
+@import './hamburger-button';
+@import './sidebar';
+@import './container';
+@import './intro';
+@import './about';
+@import './career';
+// @import './skills';
+
+/* a {
+  color: inherit;
+  text-decoration: none;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+nav.custom-navbar {
+  position: fixed;
+  z-index: 1;
+}
+
+h1 {
+  line-height: 70% !important;
+  font-size: 70px !important;
+  font-weight: 600 !important;
+  small {
+    font-size: 30px;
+    // color: #838282
+    font-weight: 500;
+  }
+}

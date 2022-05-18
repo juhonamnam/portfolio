@@ -1,0 +1,23 @@
+.intro-background {
+  background-color: #e4e2e2;
+  // background-image: url("/bg.jpg");
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  .intro-layout {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .intro {
+      width: 380px;
+      // text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .intro-layout {
+    flex-direction: column-reverse;
+  }
+}
