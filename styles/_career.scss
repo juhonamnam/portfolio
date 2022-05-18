@@ -8,24 +8,12 @@
   }
 }
 
-// @media screen and (max-width: 768px) {
-//   .about-layout {
-//     flex-direction: column;
-//     .about {
-//       width: 90% !important;
-//     }
-//   }
-// }
-
-// Timeline
-
 .timeline {
-  // background: var(--primary-color);
   margin: 20px auto;
   padding: 20px;
   .outer {
     border-left: 2px solid #333;
-    .custom-card {
+    .card {
       position: relative;
       margin: 0 0 20px 20px;
       padding: 10px;
@@ -56,13 +44,3 @@
     }
   }
 }
-
-/* Outer Layer with the timeline border */
-
-/* Card container */
-
-/* Information about the timeline */
-
-/* Title of the card */
-
-/* Timeline dot  */

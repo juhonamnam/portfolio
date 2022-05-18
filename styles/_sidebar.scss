@@ -1,4 +1,4 @@
-div.custom-sidebar-bg {
+div.sidebar-bg {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -7,20 +7,20 @@ div.custom-sidebar-bg {
   background-color: #000;
   opacity: 0.5;
   z-index: 1;
-  + div.custom-sidebar {
+  + div.sidebar {
     position: absolute;
     width: 400px;
     height: 100vh;
     background-color: #fff;
     z-index: 1;
-    div.custom-sidebar-title {
+    div.sidebar-title {
       height: $hamburger-button-height;
       padding-left: $hamburger-button-width;
       display: flex;
       align-items: center;
       font-size: 1.5rem;
     }
-    div.custom-sidebar-content {
+    div.sidebar-content {
       height: $hamburger-button-height;
       padding-left: $hamburger-button-padding;
       font-size: 1.5rem;

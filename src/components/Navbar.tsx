@@ -3,7 +3,7 @@ import SideBar from './atoms/SideBar'
 
 const Navbar = () => {
   return (
-    <nav className="custom-navbar">
+    <nav className="navbar">
       <HamburgerButton>
         <SideBar title={<>Ju Ho Nam{"'"}s Portfolio</>}>
           List

@@ -9,10 +9,10 @@ const SideBar = ({
 }) => {
   return (
     <>
-      <div className="custom-sidebar-bg" />
-      <div className="custom-sidebar">
-        <div className="custom-sidebar-title">{title}</div>
-        <div className="custom-sidebar-content">{children}</div>
+      <div className="sidebar-bg" />
+      <div className="sidebar">
+        <div className="sidebar-title">{title}</div>
+        <div className="sidebar-content">{children}</div>
       </div>
     </>
   )

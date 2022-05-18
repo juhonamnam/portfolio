@@ -1,14 +1,14 @@
 const Career = () => {
   return (
     <div className="career-background">
-      <div className="custom-container career-layout">
+      <div className="container career-layout">
         <div>
           <h2>Career</h2>
         </div>
         <div>
           <div className="timeline">
             <div className="outer">
-              <div className="custom-card">
+              <div className="card">
                 <div className="info">
                   <h3 className="title">Title 1</h3>
                   <p>
@@ -19,7 +19,7 @@ const Career = () => {
                   </p>
                 </div>
               </div>
-              <div className="custom-card">
+              <div className="card">
                 <div className="info">
                   <h3 className="title">Title 2</h3>
                   <p>
@@ -30,7 +30,7 @@ const Career = () => {
                   </p>
                 </div>
               </div>
-              <div className="custom-card">
+              <div className="card">
                 <div className="info">
                   <h3 className="title">Title 3</h3>
                   <p>
@@ -41,7 +41,7 @@ const Career = () => {
                   </p>
                 </div>
               </div>
-              <div className="custom-card">
+              <div className="card">
                 <div className="info">
                   <h3 className="title">Title 4</h3>
                   <p>
@@ -52,7 +52,7 @@ const Career = () => {
                   </p>
                 </div>
               </div>
-              <div className="custom-card">
+              <div className="card">
                 <div className="info">
                   <h3 className="title">Title 5</h3>
                   <p>

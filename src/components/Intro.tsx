@@ -1,9 +1,7 @@
-import { Button } from 'react-bootstrap'
-
 const Intro = () => {
   return (
     <div className="intro-background">
-      <div className="custom-container intro-layout">
+      <div className="container intro-layout">
         <div className="intro">
           <h1>
             <small>Hello, I am</small>
@@ -12,7 +10,6 @@ const Intro = () => {
             <br />
             <small>Full Stack Developer</small>
           </h1>
-          <Button>learn More</Button>
         </div>
       </div>
     </div>

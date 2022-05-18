@@ -3,7 +3,7 @@ import Image from 'next/image'
 const About = () => {
   return (
     <div className="about-background">
-      <div className="custom-container about-layout">
+      <div className="container about-layout">
         <Image src="/favicon.ico" alt="" width={200} height={200} />
         <div className="about">
           <h2>About Me</h2>

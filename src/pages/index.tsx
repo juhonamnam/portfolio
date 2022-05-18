@@ -5,14 +5,12 @@ import type { NextPage } from 'next'
 import Intro from 'src/components/Intro'
 import About from 'src/components/About'
 import Career from 'src/components/Career'
-import Contact from 'src/components/Contact'
 const Home: NextPage = () => {
   return (
     <>
       <Intro />
       <About />
       <Career />
-      <Contact />
     </>
   )
 }
