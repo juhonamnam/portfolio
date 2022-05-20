@@ -7,6 +7,7 @@ const Career = () => {
         <Timeline>
           {[
             {
+              time: '2022 ~',
               title: 'J&FIRST',
               content: (
                 <>
@@ -15,6 +16,12 @@ const Career = () => {
                     <br />
                     사용 스택: React JS, Next.js, Spring Boot, MySQL
                   </p>
+                  <ul>
+                    <h4>주요 업무</h4>
+                    <li>라인비즈플러스 CMS 프론트엔드 개발</li>
+                    <li>사용자 인증방식 개선</li>
+                    <li>React JS에서 Next.js로 전환 작업</li>
+                  </ul>
                 </>
               ),
             },
