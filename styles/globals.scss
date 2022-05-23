@@ -6,6 +6,13 @@
 @import './career';
 @import './timeline';
 @import './card';
+@import './badge';
+@import './icon';
+
+nav.navbar {
+  position: fixed;
+  z-index: 1;
+}
 
 * {
   box-sizing: border-box;
@@ -19,9 +26,8 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-nav.navbar {
-  position: fixed;
-  z-index: 1;
+ul {
+  padding: 0 0 0 20px;
 }
 
 h1 {

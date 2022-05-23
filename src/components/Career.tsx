@@ -14,10 +14,25 @@ const Career = () => {
                   <p>
                     직무: 프론트엔드 개발자
                     <br />
-                    사용 스택: React JS, Next.js, Spring Boot, MySQL
+                    <span className="badge">
+                      <i className="icon-react" />
+                      React JS
+                    </span>{' '}
+                    <span className="badge">
+                      <i className="icon-nextjs" />
+                      Next.js
+                    </span>{' '}
+                    <span className="badge">
+                      <i className="icon-spring" />
+                      Spring Boot
+                    </span>{' '}
+                    <span className="badge">
+                      <i className="icon-mysql" />
+                      MySQL
+                    </span>
                   </p>
+                  <h4>주요 업무</h4>
                   <ul>
-                    <h4>주요 업무</h4>
                     <li>라인비즈플러스 CMS 프론트엔드 개발</li>
                     <li>사용자 인증방식 개선</li>
                     <li>React JS에서 Next.js로 전환 작업</li>
