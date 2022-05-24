@@ -13,12 +13,9 @@ div.timeline {
   div.timeline-content-wrapper {
     display: grid;
     grid-template-columns: 150px 1fr;
+    position: relative;
     div.time {
-      margin: 0 20px 20px 0;
-      margin-top: 6px;
-    }
-    div.card {
-      margin: 0 0 20px 20px;
+      margin: 10px 20px 20px 0;
       &::before {
         content: '';
         position: absolute;
@@ -26,9 +23,32 @@ div.timeline {
         height: 10px;
         background: white;
         border-radius: 999px;
-        left: -29px;
+        left: 141px;
         border: 3px solid orangered;
         box-sizing: content-box;
+      }
+    }
+    div.card {
+      margin: 0 0 20px 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  div.timeline {
+    &::before {
+      left: 18px;
+    }
+    div.timeline-content-wrapper {
+      grid-template-columns: 1fr;
+      div.time {
+        margin: 10px 0 10px 20px;
+        &::before {
+          left: -9px;
+        }
+      }
+      div.card {
+        margin: 0 0 20px 20px;
       }
     }
   }

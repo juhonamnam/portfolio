@@ -7,7 +7,7 @@ const Career = () => {
         <Timeline>
           {[
             {
-              time: '2022 ~',
+              time: '2021.12 ~',
               title: 'J&FIRST',
               content: (
                 <>
@@ -41,6 +41,7 @@ const Career = () => {
               ),
             },
             {
+              time: '{Time}',
               title: 'Title 2',
               content: (
                 <p>
