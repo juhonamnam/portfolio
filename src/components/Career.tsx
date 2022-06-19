@@ -11,24 +11,34 @@ const Career = () => {
               title: 'J&FIRST',
               content: (
                 <>
+                  <p>직무: 프론트엔드 개발자</p>
                   <p>
-                    직무: 프론트엔드 개발자
-                    <br />
                     <span className="badge">
                       <i className="icon-react" />
                       React JS
-                    </span>{' '}
+                    </span>
                     <span className="badge">
                       <i className="icon-nextjs" />
                       Next.js
-                    </span>{' '}
+                    </span>
+                    <span className="badge">
+                      <i className="icon-typescript" />
+                      Typescript
+                    </span>
                     <span className="badge">
                       <i className="icon-spring" />
                       Spring Boot
-                    </span>{' '}
+                    </span>
                     <span className="badge">
                       <i className="icon-mysql" />
                       MySQL
+                    </span>
+                    <span className="badge">
+                      <i className="icon-nginx">
+                        <span className="path1" />
+                        <span className="path2" />
+                      </i>
+                      Nginx
                     </span>
                   </p>
                   <h4>주요 업무</h4>
