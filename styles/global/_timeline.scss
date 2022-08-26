@@ -8,7 +8,7 @@ div.timeline {
     height: 100%;
     width: 2px;
     left: 168px;
-    background-color: #333;
+    background-color: var(--primary-color);
   }
   div.timeline-content-wrapper {
     display: grid;
@@ -21,10 +21,10 @@ div.timeline {
         position: absolute;
         width: 10px;
         height: 10px;
-        background: white;
+        background: #ffffff;
         border-radius: 999px;
         left: 141px;
-        border: 3px solid orangered;
+        border: 3px solid var(--accent-color);
         box-sizing: content-box;
       }
     }

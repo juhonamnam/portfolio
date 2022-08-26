@@ -13,7 +13,10 @@ export const Timeline = ({ children }: { children: ITimelineInfo[] }) => {
       {children.map((timelineInfo, idx) => (
         <div key={idx} className="timeline-content-wrapper">
           <div className="time">{timelineInfo.time}</div>
-          <Card title={timelineInfo.title}>{timelineInfo.content}</Card>
+          <Card color="primary">
+            <h3 className="text-accent">{timelineInfo.title}</h3>
+            {timelineInfo.content}
+          </Card>
         </div>
       ))}
     </div>

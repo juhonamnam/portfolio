@@ -1,13 +1,16 @@
 @import './hamburger-button';
 @import './sidebar';
 @import './container';
-@import './intro';
-@import './about';
-@import './career';
 @import './timeline';
 @import './card';
 @import './badge';
-@import './icon';
+@import './color';
+
+:root {
+  --primary-color: #333;
+  --secondary-color: #b6aeae;
+  --accent-color: #ff4500;
+}
 
 nav.navbar {
   position: fixed;

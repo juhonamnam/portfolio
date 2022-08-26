@@ -1,16 +1,12 @@
 import { ReactNode } from 'react'
+import { Color } from '../types'
 
 export const Card = ({
   children,
-  title,
+  color,
 }: {
   children?: ReactNode
-  title?: string
+  color?: Color
 }) => {
-  return (
-    <div className="card">
-      <h3 className="title">{title}</h3>
-      {children}
-    </div>
-  )
+  return <div className={`card ${color && 'bg-' + color}`}>{children}</div>
 }
