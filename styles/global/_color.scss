@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #333;
+  --secondary-color: #b6aeae;
+  --light-color: #fff;
+  --dark-color: #000;
+  --accent-color: #ff4500;
+}
+
 .text-primary {
   color: var(--primary-color);
 }
@@ -12,15 +20,15 @@
 
 .bg-primary {
   background-color: var(--primary-color);
-  color: #ffffff;
+  color: var(--light-color);
 }
 
 .bg-secondary {
   background-color: var(--secondary-color);
-  color: #000000;
+  color: var(--dark-color);
 }
 
 .bg-accent {
   background-color: var(--accent-color);
-  color: #ffffff;
+  color: var(--light-color);
 }

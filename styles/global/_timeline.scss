@@ -21,7 +21,7 @@ div.timeline {
         position: absolute;
         width: 10px;
         height: 10px;
-        background: #ffffff;
+        background: var(--light-color);
         border-radius: 999px;
         left: 141px;
         border: 3px solid var(--accent-color);

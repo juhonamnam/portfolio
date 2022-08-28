@@ -26,6 +26,10 @@ const Career = () => {
                       Typescript
                     </span>
                     <span className="badge bg-secondary">
+                      <i className="icon-graphql" />
+                      GraphQL
+                    </span>
+                    <span className="badge bg-secondary">
                       <i className="icon-spring" />
                       Spring Boot
                     </span>
