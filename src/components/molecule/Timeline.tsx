@@ -14,7 +14,7 @@ export const Timeline = ({ children }: { children: ITimelineInfo[] }) => {
         <div key={idx} className="timeline-content-wrapper">
           <div className="time">{timelineInfo.time}</div>
           <Card color="primary">
-            <h3 className="text-accent">{timelineInfo.title}</h3>
+            <h3 className="text-secondary">{timelineInfo.title}</h3>
             {timelineInfo.content}
           </Card>
         </div>

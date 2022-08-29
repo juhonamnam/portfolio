@@ -12,7 +12,7 @@ const About = () => {
             I am passionate in creating values using available sources and
             tools. My specialties are web development and machine learning.
           </p>
-          <p>
+          <p className='text-info'>
             #Python #JavaScript #TypeScript #HTML #CSS #Java #MySQL #React.js
             #Next.js #Flask #Spring #TensorFlow
           </p>
