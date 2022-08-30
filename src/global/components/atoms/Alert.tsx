@@ -1,30 +1,40 @@
 import { useEffect, useState } from 'react'
 import { vwindow } from 'src/global/utils'
 
-const Alert = ({ message = '' }) => {
-  if (message) {
-    return (
-      <>
-        <div className="modal-bg">
-          <div className="modal">{message}</div>
-        </div>
-      </>
-    )
-  }
-
-  return <></>
+const INITIAL_STATE = {
+  isOpen: false,
+  message: '',
+  onClose: () => {},
 }
 
 export const AlertProvider = () => {
-  const [message, setMessage] = useState('')
+  const [alertState, setAlertState] = useState(INITIAL_STATE)
 
   useEffect(() => {
-    vwindow.alert = setMessage
+    vwindow.alert = (message: string) => {
+      return new Promise<void>((resolve) => {
+        setAlertState({
+          isOpen: true,
+          message,
+          onClose: () => {
+            resolve()
+            setAlertState(INITIAL_STATE)
+          },
+        })
+      })
+    }
   }, [])
+
+  if (!alertState.isOpen) return <></>
 
   return (
     <>
-      <Alert message={message} />
+      <div className="modal-bg">
+        <div className="modal">
+          {alertState.message}
+          <button onClick={() => alertState.onClose()}>Close</button>
+        </div>
+      </div>
     </>
   )
 }

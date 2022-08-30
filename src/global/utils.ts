@@ -1,8 +1,8 @@
 export const vwindow = {
-  alert: (message: string) => {
+  alert: async (message: string) => {
     alert(message)
   },
-  confirm: (message: string) => {
-    confirm(message)
+  confirm: async (message: string) => {
+    return confirm(message)
   },
 }
