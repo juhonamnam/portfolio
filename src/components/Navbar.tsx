@@ -1,13 +1,11 @@
-import HamburgerButton from './atoms/HamburgerButton'
-import SideBar from './atoms/SideBar'
+import HamburgerButton from 'src/global/components/atoms/HamburgerButton'
+import SideBar from 'src/global/components/atoms/SideBar'
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <HamburgerButton>
-        <SideBar title={<>Ju Ho Nam{"'"}s Portfolio</>}>
-          List
-        </SideBar>
+        <SideBar title={<>Ju Ho Nam{"'"}s Portfolio</>}>List</SideBar>
       </HamburgerButton>
     </nav>
   )
