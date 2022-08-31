@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { vwindow } from 'src/global/utils'
+import { vwindow } from 'src/global/util/vwindow'
 
 const INITIAL_STATE = {
   isOpen: false,

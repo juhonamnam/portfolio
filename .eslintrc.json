@@ -1,8 +1,74 @@
 {
   "extends": "next/core-web-vitals",
-  "rules": {
-    "no-console": "warn",
-    "no-unused-vars": "warn",
-    "newline-before-return": "warn"
-  }
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": ["error"],
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "react/display-name": "off",
+        "react/no-children-prop": "off",
+        "no-else-return": ["error"],
+        "no-console": ["error"],
+        "no-var": ["error"],
+        "prefer-spread": ["error"],
+        "no-unused-expressions": ["error"],
+        "no-new-func": ["error"],
+        "no-labels": ["error"],
+        "no-extend-native": ["error"],
+        "no-eval": ["error"],
+        "no-constructor-return": ["error"],
+        "no-unsafe-optional-chaining": ["error"],
+        "no-unreachable-loop": ["error"],
+        "no-unreachable": ["error"],
+        "no-import-assign": ["error"],
+        "no-param-reassign": ["error"],
+        "no-use-before-define": "off",
+        "eqeqeq": "error",
+        "padding-line-between-statements": [
+          "warn",
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "return"
+          }
+        ],
+        "max-depth": [
+          "warn",
+          {
+            "max": 6
+          }
+        ],
+        "no-unneeded-ternary": [
+          "error",
+          {
+            "defaultAssignment": false
+          }
+        ],
+        "sort-imports": "off",
+        "import/order": "off",
+        "semi": ["warn", "never"],
+        "quotes": [
+          "warn",
+          "single",
+          {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+          }
+        ],
+        "object-curly-spacing": ["warn", "always"],
+        "array-bracket-spacing": ["warn", "never"],
+        "computed-property-spacing": [
+          "warn",
+          "never",
+          {
+            "enforceForClassMembers": true
+          }
+        ]
+      }
+    }
+  ]
 }

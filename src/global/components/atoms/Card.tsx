@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Color } from '../types'
+import { Color } from '../../util/types'
 
 export const Card = ({
   children,
