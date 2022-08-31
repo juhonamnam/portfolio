@@ -1,34 +1,28 @@
 :root {
   --primary-color: #453c3c;
+  --primary-hover-color: #342e2e;
   --secondary-color: #fb855b;
+  --secondary-hover-color: #f4642f;
   --info-color: #a6a0a0;
+  --info-hover-color: #797575;
   --light-color: #fff;
   --dark-color: #000;
 }
 
-.text-primary {
-  color: var(--primary-color);
-}
+$colors: (primary, secondary, info);
 
-.text-secondary {
-  color: var(--secondary-color);
-}
-
-.text-info {
-  color: var(--info-color);
-}
-
-.bg-primary {
-  background-color: var(--primary-color);
-  color: var(--light-color);
-}
-
-.bg-secondary {
-  background-color: var(--secondary-color);
-  color: var(--dark-color);
-}
-
-.bg-info {
-  background-color: var(--info-color);
-  color: var(--dark-color);
+@each $color in $colors {
+  .text-#{$color} {
+    color: var(--#{$color}-color)
+  }
+  .bg-#{$color} {
+    background-color: var(--#{$color}-color);
+    color: var(--light-color);
+    &.hover {
+      transition: 0.15s;
+      &:hover {
+        background-color: var(--#{$color}-hover-color);
+      }
+    }
+  }
 }
