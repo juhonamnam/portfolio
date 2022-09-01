@@ -1,13 +1,13 @@
 import { ReactNode } from 'react'
 import { Card } from '../atoms/Card'
 
-interface ITimelineInfo {
+interface TimelineInfo {
   time?: string
   title?: string
   content?: ReactNode
 }
 
-export const Timeline = ({ children }: { children: ITimelineInfo[] }) => {
+export const Timeline = ({ children }: { children: TimelineInfo[] }) => {
   return (
     <div className="timeline">
       {children.map((timelineInfo, idx) => (

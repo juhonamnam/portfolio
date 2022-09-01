@@ -1,21 +1,28 @@
 import { useEffect, useState } from 'react'
+import { Color, ModalOption } from 'src/global/util/types'
 import { vwindow } from 'src/global/util/vwindow'
 
 const INITIAL_STATE = {
   isOpen: false,
   message: '',
+  color: 'primary' as Color,
   confirm: () => {},
   cancel: () => {},
 }
 
-export const ConfirmProvider = () => {
+export const ConfirmProvider = ({
+  defaultOption = { color: 'primary' },
+}: {
+  defaultOption?: ModalOption
+}) => {
   const [confirmState, setConfirmState] = useState(INITIAL_STATE)
 
   useEffect(() => {
-    vwindow.confirm = (message: string) => {
+    vwindow.confirm = (message: string, option = defaultOption) => {
       return new Promise<boolean>((resolve) => {
         setConfirmState({
           isOpen: true,
+          color: option.color || 'primary',
           message,
           confirm: () => {
             resolve(true)
@@ -35,10 +42,10 @@ export const ConfirmProvider = () => {
   return (
     <>
       <div className="modal-bg">
-        <div className="modal">
+        <div className={`modal bg-${confirmState.color}`}>
           {confirmState.message}
-          <button onClick={() => confirmState.cancel()}>No</button>
-          <button onClick={() => confirmState.confirm()}>Yes</button>
+          <button onClick={() => confirmState.confirm()}>Ok</button>
+          <button onClick={() => confirmState.cancel()}>Cancel</button>
         </div>
       </div>
     </>
