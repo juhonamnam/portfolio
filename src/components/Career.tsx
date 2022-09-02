@@ -13,31 +13,31 @@ const Career = () => {
                 <>
                   <p>직무: 프론트엔드 개발자</p>
                   <p>
-                    <span className="badge bg-info">
+                    <span className="badge bg-primary-alt">
                       <i className="icon-react" />
                       React JS
                     </span>
-                    <span className="badge bg-info">
+                    <span className="badge bg-primary-alt">
                       <i className="icon-nextjs" />
                       Next.js
                     </span>
-                    <span className="badge bg-info">
+                    <span className="badge bg-primary-alt">
                       <i className="icon-typescript" />
                       Typescript
                     </span>
-                    <span className="badge bg-info">
+                    <span className="badge bg-primary-alt">
                       <i className="icon-graphql" />
                       GraphQL
                     </span>
-                    <span className="badge bg-info">
+                    <span className="badge bg-primary-alt">
                       <i className="icon-spring" />
                       Spring Boot
                     </span>
-                    <span className="badge bg-info">
+                    <span className="badge bg-primary-alt">
                       <i className="icon-mysql" />
                       MySQL
                     </span>
-                    <span className="badge bg-info">
+                    <span className="badge bg-primary-alt">
                       <i className="icon-nginx">
                         <span className="path1" />
                         <span className="path2" />
