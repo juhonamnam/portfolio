@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { ModalOption } from './types'
 
 export const vwindow = {
