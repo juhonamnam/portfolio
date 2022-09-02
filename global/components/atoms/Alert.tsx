@@ -1,18 +1,18 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Color, ModalOption } from '../../util/types'
+import { BackgroundColor, ModalOption } from '../../util/types'
 import { vwindow } from '../../util/vwindow'
 
 const INITIAL_STATE = {
   isOpen: false,
   title: '',
   message: '',
-  color: 'primary' as Color,
+  color: 'primary' as BackgroundColor,
   onClose: () => {},
 }
 
 const DEFAULT_OPTION = {
   title: '',
-  color: 'primary' as Color,
+  color: 'primary' as BackgroundColor,
 }
 
 export const AlertProvider = ({
