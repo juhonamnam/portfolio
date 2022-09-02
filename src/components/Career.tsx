@@ -1,4 +1,4 @@
-import { Timeline } from 'src/global/components/molecule/Timeline'
+import { Timeline } from 'global/components/molecule/Timeline'
 
 const Career = () => {
   return (

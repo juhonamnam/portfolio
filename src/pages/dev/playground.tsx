@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { vwindow } from 'src/global/util/vwindow'
+import { vwindow } from 'global/util/vwindow'
 
 const Home: NextPage = () => {
   return (

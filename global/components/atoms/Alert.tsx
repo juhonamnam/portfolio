@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Color, ModalOption } from 'src/global/util/types'
-import { vwindow } from 'src/global/util/vwindow'
+import { Color, ModalOption } from '../../util/types'
+import { vwindow } from '../../util/vwindow'
 
 const INITIAL_STATE = {
   isOpen: false,

@@ -1,5 +1,5 @@
-import HamburgerButton from 'src/global/components/atoms/HamburgerButton'
-import SideBar from 'src/global/components/atoms/SideBar'
+import HamburgerButton from 'global/components/atoms/HamburgerButton'
+import SideBar from 'global/components/atoms/SideBar'
 
 const Navbar = () => {
   return (
