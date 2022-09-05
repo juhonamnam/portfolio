@@ -1,14 +1,27 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useReducer } from 'react'
 import { BackgroundColor, ModalOption } from '../../util/types'
 import { vwindow } from '../../util/vwindow'
 
-const INITIAL_STATE = {
-  isOpen: false,
-  title: '',
-  message: '',
-  color: 'primary' as BackgroundColor,
-  confirm: () => {},
-  cancel: () => {},
+interface ConfirmState {
+  title: string
+  message: string
+  color: BackgroundColor
+  confirm: () => void
+  cancel: () => void
+}
+
+const reducer = (
+  state: ConfirmState[],
+  action: { type: 'enqueue' | 'dequeue'; payload?: ConfirmState }
+) => {
+  switch (action.type) {
+    case 'enqueue':
+      if (action.payload) return [...state, action.payload]
+    case 'dequeue':
+      return state.slice(1)
+    default:
+      return state
+  }
 }
 
 const DEFAULT_OPTION = {
@@ -25,7 +38,7 @@ export const ConfirmProvider = ({
     return { ...DEFAULT_OPTION, ...defaultOption }
   }, [defaultOption])
 
-  const [confirmState, setConfirmState] = useState(INITIAL_STATE)
+  const [confirmQueue, confirmQueueDispatch] = useReducer(reducer, [])
 
   useEffect(() => {
     vwindow.confirm = (
@@ -36,34 +49,36 @@ export const ConfirmProvider = ({
       } = _defaultOption
     ) => {
       return new Promise<boolean>((resolve) => {
-        setConfirmState({
-          isOpen: true,
-          title: title,
-          color: color,
-          message,
-          confirm: () => {
-            resolve(true)
-            setConfirmState(INITIAL_STATE)
-          },
-          cancel: () => {
-            resolve(false)
-            setConfirmState(INITIAL_STATE)
+        confirmQueueDispatch({
+          type: 'enqueue',
+          payload: {
+            title: title,
+            color: color,
+            message,
+            confirm: () => {
+              resolve(true)
+              confirmQueueDispatch({ type: 'dequeue' })
+            },
+            cancel: () => {
+              resolve(false)
+              confirmQueueDispatch({ type: 'dequeue' })
+            },
           },
         })
       })
     }
   }, [_defaultOption])
 
-  if (!confirmState.isOpen) return <></>
+  if (!confirmQueue.length) return <></>
 
   return (
     <>
       <div className="modal-bg">
-        <div className={`modal bg-${confirmState.color}`}>
-          {confirmState.title && <h6>{confirmState.title}</h6>}
-          <span>{confirmState.message}</span>
-          <button onClick={() => confirmState.confirm()}>Ok</button>
-          <button onClick={() => confirmState.cancel()}>Cancel</button>
+        <div className={`modal bg-${confirmQueue[0].color}`}>
+          {confirmQueue[0].title && <h6>{confirmQueue[0].title}</h6>}
+          <span>{confirmQueue[0].message}</span>
+          <button onClick={() => confirmQueue[0].confirm()}>Ok</button>
+          <button onClick={() => confirmQueue[0].cancel()}>Cancel</button>
         </div>
       </div>
     </>

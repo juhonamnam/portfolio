@@ -1,13 +1,26 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useReducer } from 'react'
 import { BackgroundColor, ModalOption } from '../../util/types'
 import { vwindow } from '../../util/vwindow'
 
-const INITIAL_STATE = {
-  isOpen: false,
-  title: '',
-  message: '',
-  color: 'primary' as BackgroundColor,
-  onClose: () => {},
+interface AlertState {
+  title: string
+  message: string
+  color: BackgroundColor
+  close: () => void
+}
+
+const reducer = (
+  state: AlertState[],
+  action: { type: 'enqueue' | 'dequeue'; payload?: AlertState }
+) => {
+  switch (action.type) {
+    case 'enqueue':
+      if (action.payload) return [...state, action.payload]
+    case 'dequeue':
+      return state.slice(1)
+    default:
+      return state
+  }
 }
 
 const DEFAULT_OPTION = {
@@ -24,7 +37,7 @@ export const AlertProvider = ({
     return { ...DEFAULT_OPTION, ...defaultOption }
   }, [defaultOption])
 
-  const [alertState, setAlertState] = useState(INITIAL_STATE)
+  const [alertQueue, alertQueueDispatch] = useReducer(reducer, [])
 
   useEffect(() => {
     vwindow.alert = (
@@ -35,31 +48,35 @@ export const AlertProvider = ({
       } = _defaultOption
     ) => {
       return new Promise<void>((resolve) => {
-        setAlertState({
-          isOpen: true,
-          title: title,
-          color: color,
-          message,
-          onClose: () => {
-            resolve()
-            setAlertState(INITIAL_STATE)
+        alertQueueDispatch({
+          type: 'enqueue',
+          payload: {
+            title: title,
+            color: color,
+            message,
+            close: () => {
+              resolve()
+              alertQueueDispatch({ type: 'dequeue' })
+            },
           },
         })
       })
     }
   }, [_defaultOption])
 
-  if (!alertState.isOpen) return <></>
+  if (!alertQueue.length) return <></>
 
   return (
     <>
       <div className="modal-bg">
         <div
-          className={`modal ${alertState.color && 'bg-' + alertState.color}`}
+          className={`modal ${
+            alertQueue[0].color && 'bg-' + alertQueue[0].color
+          }`}
         >
-          {alertState.title && <h6>{alertState.title}</h6>}
-          <span>{alertState.message}</span>
-          <button onClick={() => alertState.onClose()}>Ok</button>
+          {alertQueue[0].title && <h6>{alertQueue[0].title}</h6>}
+          <span>{alertQueue[0].message}</span>
+          <button onClick={() => alertQueue[0].close()}>Ok</button>
         </div>
       </div>
     </>
