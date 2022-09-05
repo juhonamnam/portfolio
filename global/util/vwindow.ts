@@ -1,11 +1,11 @@
 /* eslint-disable */
-import { ModalOption } from './types'
+import { WindowModalOption } from './types'
 
 export const vwindow = {
-  alert: async (message: string, option: ModalOption = {}) => {
+  alert: async (message: string, option: WindowModalOption = {}) => {
     alert(message)
   },
-  confirm: async (message: string, option: ModalOption = {}) => {
+  confirm: async (message: string, option: WindowModalOption = {}) => {
     return confirm(message)
   },
 }

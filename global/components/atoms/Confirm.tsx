@@ -1,22 +1,30 @@
-import { useEffect, useMemo, useReducer } from 'react'
-import { BackgroundColor, ModalOption } from '../../util/types'
+import { useEffect, useReducer } from 'react'
+import {
+  DEFAULT_WINDOW_MODAL_OPTION,
+  WindowModalOption,
+} from '../../util/types'
 import { vwindow } from '../../util/vwindow'
 
-interface ConfirmState {
-  title: string
+interface ConfirmState extends WindowModalOption {
   message: string
-  color: BackgroundColor
   confirm: () => void
   cancel: () => void
 }
 
 const reducer = (
   state: ConfirmState[],
-  action: { type: 'enqueue' | 'dequeue'; payload?: ConfirmState }
+  action:
+    | {
+        type: 'enqueue'
+        payload: ConfirmState
+      }
+    | {
+        type: 'dequeue'
+      }
 ) => {
   switch (action.type) {
     case 'enqueue':
-      if (action.payload) return [...state, action.payload]
+      return [...state, action.payload]
     case 'dequeue':
       return state.slice(1)
     default:
@@ -24,36 +32,22 @@ const reducer = (
   }
 }
 
-const DEFAULT_OPTION = {
-  title: '',
-  color: 'primary' as BackgroundColor,
-}
-
 export const ConfirmProvider = ({
   defaultOption = {},
 }: {
-  defaultOption?: ModalOption
+  defaultOption?: WindowModalOption
 }) => {
-  const _defaultOption = useMemo(() => {
-    return { ...DEFAULT_OPTION, ...defaultOption }
-  }, [defaultOption])
-
   const [confirmQueue, confirmQueueDispatch] = useReducer(reducer, [])
 
   useEffect(() => {
-    vwindow.confirm = (
-      message: string,
-      {
-        title = _defaultOption.title,
-        color = _defaultOption.color,
-      } = _defaultOption
-    ) => {
+    vwindow.confirm = (message, option) => {
       return new Promise<boolean>((resolve) => {
         confirmQueueDispatch({
           type: 'enqueue',
           payload: {
-            title: title,
-            color: color,
+            ...DEFAULT_WINDOW_MODAL_OPTION,
+            ...defaultOption,
+            ...option,
             message,
             confirm: () => {
               resolve(true)
@@ -67,7 +61,7 @@ export const ConfirmProvider = ({
         })
       })
     }
-  }, [_defaultOption])
+  }, [defaultOption])
 
   if (!confirmQueue.length) return <></>
 
@@ -77,8 +71,12 @@ export const ConfirmProvider = ({
         <div className={`modal bg-${confirmQueue[0].color}`}>
           {confirmQueue[0].title && <h6>{confirmQueue[0].title}</h6>}
           <span>{confirmQueue[0].message}</span>
-          <button onClick={() => confirmQueue[0].confirm()}>Ok</button>
-          <button onClick={() => confirmQueue[0].cancel()}>Cancel</button>
+          <button onClick={() => confirmQueue[0].confirm()}>
+            {confirmQueue[0].confirmLabel}
+          </button>
+          <button onClick={() => confirmQueue[0].cancel()}>
+            {confirmQueue[0].cancelLabel}
+          </button>
         </div>
       </div>
     </>
