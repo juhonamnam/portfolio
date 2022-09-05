@@ -38,7 +38,16 @@ $colors: (primary, secondary, info);
       transition: 0.15s;
       &:hover {
         background-color: var(--#{$color}-hover-color);
+        color: var(--#{$color}-alt-color);
       }
     }
+  }
+
+  .bd-#{$color} {
+    border-color: var(--#{$color}-color) !important;
+  }
+
+  .bd-#{$color}-alt {
+    border-color: var(--#{$color}-alt-color) !important;
   }
 }
