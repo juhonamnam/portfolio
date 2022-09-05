@@ -1,17 +1,13 @@
-export type BackgroundColor =
+export type Color =
   | 'primary'
   | 'primary-alt'
   | 'secondary'
   | 'secondary-alt'
   | 'info'
   | 'info-alt'
-  | 'light'
-  | 'dark'
-
-export type TextColor = 'primary' | 'secondary' | 'info' | 'light' | 'dark'
 
 export interface ModalOption {
-  color?: BackgroundColor
+  color?: Color
 }
 
 export interface WindowModalOption extends ModalOption {
@@ -20,9 +16,9 @@ export interface WindowModalOption extends ModalOption {
   cancelLabel?: string
 }
 
-export const DEFAULT_WINDOW_MODAL_OPTION = {
+export const DEFAULT_WINDOW_MODAL_OPTION: Required<WindowModalOption> = {
   title: '',
-  color: 'primary' as BackgroundColor,
+  color: 'primary' as Color,
   confirmLabel: 'Ok',
   cancelLabel: 'Cancel',
 }

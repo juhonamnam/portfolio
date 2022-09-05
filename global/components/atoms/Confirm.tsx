@@ -4,8 +4,9 @@ import {
   WindowModalOption,
 } from '../../util/types'
 import { vwindow } from '../../util/vwindow'
+import { convertAltColor } from '../../util/convert'
 
-interface ConfirmState extends WindowModalOption {
+interface ConfirmState extends Required<WindowModalOption> {
   message: string
   confirm: () => void
   cancel: () => void
@@ -71,12 +72,20 @@ export const ConfirmProvider = ({
         <div className={`modal bg-${confirmQueue[0].color}`}>
           {confirmQueue[0].title && <h6>{confirmQueue[0].title}</h6>}
           <span>{confirmQueue[0].message}</span>
-          <button onClick={() => confirmQueue[0].confirm()}>
-            {confirmQueue[0].confirmLabel}
-          </button>
-          <button onClick={() => confirmQueue[0].cancel()}>
-            {confirmQueue[0].cancelLabel}
-          </button>
+          <div className="modal-footer">
+            <button
+              className={'bg-' + convertAltColor(confirmQueue[0].color)}
+              onClick={() => confirmQueue[0].confirm()}
+            >
+              {confirmQueue[0].confirmLabel}
+            </button>
+            <button
+              className={'bg-' + convertAltColor(confirmQueue[0].color)}
+              onClick={() => confirmQueue[0].cancel()}
+            >
+              {confirmQueue[0].cancelLabel}
+            </button>
+          </div>
         </div>
       </div>
     </>

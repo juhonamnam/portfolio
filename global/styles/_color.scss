@@ -18,9 +18,12 @@ $colors: (primary, secondary, info);
   .text-#{$color} {
     color: var(--#{$color}-color);
   }
+  .text-#{$color}-alt {
+    color: var(--#{$color}-alt-color);
+  }
   .bg-#{$color} {
     background-color: var(--#{$color}-color);
-    color: var(--light-color);
+    color: var(--#{$color}-alt-color);
     &.hover {
       transition: 0.15s;
       &:hover {

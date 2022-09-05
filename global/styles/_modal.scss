@@ -13,6 +13,10 @@ div.modal-bg {
     margin-bottom: 1.75rem;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     z-index: 1;
+    div.modal-footer {
+      padding-top: 1em;
+    }
   }
 }

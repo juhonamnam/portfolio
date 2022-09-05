@@ -4,8 +4,9 @@ import {
   WindowModalOption,
 } from '../../util/types'
 import { vwindow } from '../../util/vwindow'
+import { convertAltColor } from '../../util/convert'
 
-interface AlertState extends WindowModalOption {
+interface AlertState extends Required<WindowModalOption> {
   message: string
   close: () => void
 }
@@ -63,16 +64,17 @@ export const AlertProvider = ({
   return (
     <>
       <div className="modal-bg">
-        <div
-          className={`modal ${
-            alertQueue[0].color && 'bg-' + alertQueue[0].color
-          }`}
-        >
+        <div className={`modal ${'bg-' + alertQueue[0].color}`}>
           {alertQueue[0].title && <h6>{alertQueue[0].title}</h6>}
           <span>{alertQueue[0].message}</span>
-          <button onClick={() => alertQueue[0].close()}>
-            {alertQueue[0].confirmLabel}
-          </button>
+          <div className="modal-footer">
+            <button
+              className={'bg-' + convertAltColor(alertQueue[0].color)}
+              onClick={() => alertQueue[0].close()}
+            >
+              {alertQueue[0].confirmLabel}
+            </button>
+          </div>
         </div>
       </div>
     </>
