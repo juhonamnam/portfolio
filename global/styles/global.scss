@@ -1,35 +1,19 @@
-@import './color';
-@import './hamburger-button';
-@import './navigation';
-@import './container';
-@import './timeline';
-@import './card';
-@import './badge';
-@import './modal';
+@use './color';
+@use './text';
+@use './navigation';
+@use './container';
+@use './timeline';
+@use './component';
+@use './modal';
 
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-ul {
-  padding: 0 0 0 20px;
-}
-
-h1 {
-  line-height: 70% !important;
-  font-size: 70px !important;
-  font-weight: 600 !important;
-  small {
-    font-size: 30px;
-    color: #838282;
-    font-weight: 500;
-  }
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  border-top: 1px solid;
+  opacity: 0.25;
 }

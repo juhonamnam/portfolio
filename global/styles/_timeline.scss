@@ -8,6 +8,10 @@ div.timeline {
     height: 100%;
     width: 2px;
     left: 168px;
+    background-color: var(--primary-color);
+    @media (max-width: 768px) {
+      left: 18px;
+    }
   }
   div.timeline-content-wrapper {
     display: grid;
@@ -23,31 +27,20 @@ div.timeline {
         background: var(--light-color);
         border-radius: 999px;
         left: 141px;
-        border: 3px solid;
+        border: 3px solid var(--secondary-color);
         box-sizing: content-box;
       }
     }
-    div.card {
+    > * {
       margin: 0 0 20px 20px;
     }
-  }
-}
-
-@media (max-width: 768px) {
-  div.timeline {
-    > div.period-line {
-      left: 18px;
-    }
-    div.timeline-content-wrapper {
+    @media (max-width: 768px) {
       grid-template-columns: 1fr;
       div.period {
         margin: 10px 0 10px 20px;
         > div.period-mark {
           left: -9px;
         }
-      }
-      div.card {
-        margin: 0 0 20px 20px;
       }
     }
   }

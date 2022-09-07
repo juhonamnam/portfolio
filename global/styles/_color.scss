@@ -16,13 +16,13 @@ $colors: (primary, secondary, info);
 
 @each $color in $colors {
   .text-#{$color} {
-    color: var(--#{$color}-color);
+    color: var(--#{$color}-color) !important;
   }
   .text-#{$color}-alt {
-    color: var(--#{$color}-alt-color);
+    color: var(--#{$color}-alt-color) !important;
   }
   .bg-#{$color} {
-    background-color: var(--#{$color}-color);
+    background-color: var(--#{$color}-color) !important;
     color: var(--#{$color}-alt-color);
     &.hover {
       transition: 0.15s;
@@ -32,7 +32,7 @@ $colors: (primary, secondary, info);
     }
   }
   .bg-#{$color}-alt {
-    background-color: var(--#{$color}-alt-color);
+    background-color: var(--#{$color}-alt-color) !important;
     color: var(--#{$color}-color);
     &.hover {
       transition: 0.15s;
